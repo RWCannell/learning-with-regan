@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Physics Home Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            section: 1,
+            tex: {
+                tagformat: {
+                    number: (n) => MathJax.config.section + '.' + n,
+                    id: (tag) => 'eqn-id:' + tag
+                }
+            },
+            startup: {
+                ready() {
+                    MathJax.startup.defaultReady();
+                    MathJax.startup.input[0].preFilters.add(({ math }) => {
+                        if (math.inputData.recompile) {
+                            MathJax.config.section = math.inputData.recompile.section;
+                        }
+                    });
+                    MathJax.startup.input[0].postFilters.add(({ math }) => {
+                        if (math.inputData.recompile) {
+                            math.inputData.recompile.section = MathJax.config.section;
+                        }
+                    });
+                }
+            }
+        };
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        body {
+            /* font-family: "Lato", sans-serif; */
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        .wrapper {
+            display: flex;
+            width: 100%;
+            align-items: stretch;
+        }
+
+        .physics-side-bar {
+            height: 100%;
+            min-height: 100vh;
+            min-width: 25%;
+            z-index: 1;
+            background-color: #000;
+            overflow-x: hidden;
+        }
+
+        .physics-side-bar a {
+            padding: 8px;
+            text-decoration: none;
+            font-size: 24px;
+            color: #818181;
+            display: block;
+        }
+
+        .physics-side-bar a:hover {
+            color: #f1f1f1;
+        }
+
+        .content {
+            padding-top: 16px;
+            padding-left: 16px;
+            font-size: 20px;
+            word-wrap: break-word;
+        }
+
+        .physics-header {
+            padding-top: 16px;
+            padding-left: 8px;
+            color: #fff;
+        }
+
+        .figure {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="content-wrap">
+            <div class="row">
+                <div class="col-3">
+                    <nav class="physics-side-bar">
+                        <div class="physics-header">
+                            <h2><b>Physics</b></h2>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li><a href="motion_in_one_dimension_theory.html">Motion in One Dimension</a></li>
+                            <li><a href="motion_in_two_dimensions_theory.html">Motion in Two Dimensions</a></li>
+                            <li><a href="electric_circuits_theory.html">Electric Circuits</a></li>
+                            <li><a href="work_energy_power_theory.html">Work, Energy, and Power</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="content col-9">
+                    <h3><b>Motion in One Dimension</b></h3>
+                    <h4><b>Introduction</b></h4>
+                    <p>The study of the motion of objects is known as mechanics. Mechanics can be divided into two
+                        parts:
+                        kinematics and dynamics. Kinematics describes <em>how</em> objects move, while dynamics
+                        describes
+                        <em>why</em> they move in the first place. We will only look at one dimensional kinematics in
+                        this section.
+                    </p>
+                    <h4><b>Physical Quantities</b></h4>
+                    <p>In order to solve a kinematics problem, we need to use a coordinate system. This coordinate
+                        system
+                        forms our frame of reference. In order to perform measurements, we must have a frame of
+                        reference.</p>
+                    <p>Distance is the amount of space through which an object has moved to get from one point to
+                        another point in our coordinate system. Distance is a scalar quantity. This means that it is
+                        described only in terms of its magnitude, i.e. "the amount of it". We measure distance in meters
+                        (m)</p>
+                    <p>Displacement is the straight line distance between two points. In Euclidean geometry, a straight
+                        line is the shortest distance between two points. We can think of displacement as the change in
+                        position of an object. If an object moves from point A and it returns to point A, its net
+                        displacement is zero. However, the distance travelled is not necessarily zero (it could have
+                        moved in a circle. However, we will not discuss circular motion).</p>
+                    <p>There is a direction associated with displacement. For example, we need to specify if the object
+                        has moved from point A to point B, or from point B to point A. Depending on how we've oriented
+                        our coordinate system, the direction of the displacement determines whether it is positive or
+                        negative. Since magnitude and direction are needed to describe displacement, it is a vector.
+                        Since we'll only be discussing one dimensional motion, we'll not go into too much detail about
+                        vector mathematics. That will be discussed when we consider two dimensional motion.</p>
+                    <div class="figure">
+                        <figure>
+                            <img src="./../../public/assets/images/kinematics_in_one_dimension_00.png"
+                                alt="Kinematics in One Dimension">
+                            <figcaption>Fig.1 - Distance vs Displacement</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
